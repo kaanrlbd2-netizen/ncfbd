@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper to validate string bounds
+    function isShortString(str, maxLen) {
+      return str is string && str.size() <= maxLen;
+    }
+
+    // Default deny for unhandled paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Students collection
+    match /students/{studentId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Settings collection
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Marks collection
+    match /marks/{markId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Connection testing
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

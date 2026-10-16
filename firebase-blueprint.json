@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "Student": {
+      "title": "Student",
+      "description": "Represents a registered student in the exam control system",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "fatherName": { "type": "string" },
+        "motherName": { "type": "string" },
+        "roll": { "type": "string" },
+        "permanentId": { "type": "string" },
+        "classId": { "type": "string" },
+        "className": { "type": "string" },
+        "schoolId": { "type": "string" },
+        "schoolName": { "type": "string" },
+        "schoolCode": { "type": "string" },
+        "events": { "type": "array" },
+        "serialNumber": { "type": "string" },
+        "orderIndex": { "type": "number" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "name", "roll", "schoolId", "classId"]
+    },
+    "Setting": {
+      "title": "Setting",
+      "description": "System settings, institution branding, admin password, and options",
+      "type": "object",
+      "properties": {
+        "institution": { "type": "object" },
+        "classes": { "type": "array" },
+        "schools": { "type": "array" },
+        "events": { "type": "array" },
+        "adminPassword": { "type": "string" }
+      }
+    },
+    "MarkRecord": {
+      "title": "MarkRecord",
+      "description": "Student marks scored in a specific event",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "eventId": { "type": "string" },
+        "eventName": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "permanentId": { "type": "string" },
+        "roll": { "type": "string" },
+        "schoolName": { "type": "string" },
+        "schoolCode": { "type": "string" },
+        "className": { "type": "string" },
+        "marks": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id", "eventId", "studentId", "marks"]
+    }
+  },
+  "firestore": {
+    "/students/{studentId}": {
+      "schema": "Student",
+      "description": "Collection of all enrolled students synced in real-time"
+    },
+    "/settings/{settingId}": {
+      "schema": "Setting",
+      "description": "Configuration documents for institution branding, classes, schools, events, and password"
+    },
+    "/marks/{markId}": {
+      "schema": "MarkRecord",
+      "description": "Marks records for students across events for merit lists"
+    }
+  }
+}

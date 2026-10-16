@@ -1,0 +1,6 @@
+{
+  "name": "পরীক্ষা নিয়ন্ত্রণ সিস্টেম - Exam Control System",
+  "description": "স্কুল ও পরীক্ষা নিয়ন্ত্রণ, শিক্ষার্থী নিবন্ধন, স্বয়ংক্রিয় সিরিয়াল নম্বর উৎপাদন, এ ফোর পেজ অনুসারে পিডিএফ তৈরি এবং এক্সেল ডাউনলোড সিস্টেম।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
